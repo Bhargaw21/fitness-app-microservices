@@ -1,157 +1,149 @@
-🏋️ Fitness App - Microservices Architecture
-
-A cloud-native fitness tracking application built with Spring Boot, Spring Cloud, React, and Microservices architecture.
-
-The project demonstrates how to design a scalable, modular, and distributed fitness app where different services (User, Activity, AI Recommendation, Gateway, Config, Eureka) work together to provide personalized fitness experiences.
-
-📖 Table of Contents
-
-Features
-
-Architecture
-
-Tech Stack
-
-Repository Structure
-
-Detailed Service Description
-
-Setup & Installation
-
-Running the Application
-
-API Endpoints
-
-Future Enhancements
-
-Contributing
-
-License
-
-🚀 Features
-
-✅ User Management – Signup, login, and profile management
-✅ Activity Tracking – Record workouts, calories, steps, and progress
-✅ AI Recommendation Service – Suggests personalized workouts & diet plans
-✅ Service Discovery – Using Eureka Server for dynamic service registration
-✅ Centralized Configuration – Managed by Spring Cloud Config Server
-✅ API Gateway – Acts as a single entry point with load balancing & routing
-✅ React Frontend – Intuitive UI for seamless user experience
-
-🏗️ Architecture
-flowchart TD
-    A[React Frontend] --> B[API Gateway]
-    B --> C[User Service]
-    B --> D[Activity Service]
-    B --> E[AI Service]
-    C -->|Config| F[Config Server]
-    D -->|Config| F
-    E -->|Config| F
-    B --> G[Eureka Server]
-    C --> G
-    D --> G
-    E --> G
 
 
-Frontend (React): User interface to interact with backend services
+<h1>🏋️ Fitness App - Microservices Architecture</h1>
 
-API Gateway: Routes client requests to appropriate microservices
+<p>
+A <b>cloud-native fitness tracking application</b> built with <b>Spring Boot</b>, <b>Spring Cloud</b>, <b>React</b>, and <b>Microservices architecture</b>.
+</p>
 
-User Service: Handles authentication & user data
+<p>
+This project demonstrates how to design a <b>scalable, modular, and distributed fitness app</b> where different services 
+(User, Activity, AI Recommendation, Gateway, Config, Eureka) work together to provide personalized fitness experiences.
+</p>
 
-Activity Service: Logs & retrieves workout activities
+<div class="box toc">
+  <h2>📖 Table of Contents</h2>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#tech-stack">Tech Stack</a></li>
+    <li><a href="#repository-structure">Repository Structure</a></li>
+    <li><a href="#detailed-service-description">Detailed Service Description</a></li>
+    <li><a href="#setup-installation">Setup & Installation</a></li>
+    <li><a href="#running-application">Running the Application</a></li>
+    <li><a href="#api-endpoints">API Endpoints</a></li>
+    <li><a href="#future-enhancements">Future Enhancements</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+  </ul>
+</div>
 
-AI Service: Provides smart recommendations using user activity data
+<div class="box" id="features">
+  <h2>🚀 Features</h2>
+  <ul>
+    <li>User Management – Signup, login, and profile management</li>
+    <li>Activity Tracking – Record workouts, calories, steps, and progress</li>
+    <li>AI Recommendation Service – Personalized workouts & diet plans</li>
+    <li>Service Discovery – Eureka Server for dynamic service registration</li>
+    <li>Centralized Configuration – Spring Cloud Config Server</li>
+    <li>API Gateway – Single entry point with load balancing & routing</li>
+    <li>React Frontend – Intuitive UI for seamless user experience</li>
+  </ul>
+</div>
 
-Config Server: Manages centralized configuration
+<div class="box" id="architecture">
+  <h2>🏗️ Architecture</h2>
+  <div class="flowchart">
+  Flowchart (Mermaid style):<br><br>
+  TD<br>
+  A[React Frontend] --> B[API Gateway]<br>
+  B --> C[User Service]<br>
+  B --> D[Activity Service]<br>
+  B --> E[AI Service]<br>
+  C -->|Config| F[Config Server]<br>
+  D -->|Config| F<br>
+  E -->|Config| F<br>
+  B --> G[Eureka Server]<br>
+  C --> G<br>
+  D --> G<br>
+  E --> G
+  </div>
 
-Eureka Server: Service registry & discovery
+  <h3>Components</h3>
+  <ul>
+    <li><b>Frontend (React):</b> User interface</li>
+    <li><b>API Gateway:</b> Routes requests to microservices</li>
+    <li><b>User Service:</b> Authentication & user data</li>
+    <li><b>Activity Service:</b> Logs & retrieves workouts</li>
+    <li><b>AI Service:</b> Smart recommendations</li>
+    <li><b>Config Server:</b> Centralized config</li>
+    <li><b>Eureka Server:</b> Service registry & discovery</li>
+  </ul>
+</div>
 
-⚙️ Tech Stack
+<div class="box" id="tech-stack">
+  <h2>⚙️ Tech Stack</h2>
+  <h3>Backend</h3>
+  <ul>
+    <li>Java 17+</li>
+    <li>Spring Boot</li>
+    <li>Spring Cloud (Eureka, Config, Gateway)</li>
+    <li>RESTful APIs</li>
+  </ul>
 
-Backend
+  <h3>Frontend</h3>
+  <ul>
+    <li>React.js</li>
+    <li>Axios</li>
+    <li>CSS / Bootstrap</li>
+  </ul>
 
-Java 17+
+  <h3>Databases</h3>
+  <ul>
+    <li>MySQL / PostgreSQL</li>
+  </ul>
 
-Spring Boot
+  <h3>DevOps</h3>
+  <ul>
+    <li>Maven</li>
+    <li>Docker (future deployment)</li>
+  </ul>
+</div>
 
-Spring Cloud (Eureka, Config, Gateway)
-
-RESTful APIs
-
-Frontend
-
-React.js
-
-Axios (API calls)
-
-CSS / Bootstrap
-
-Databases
-
-MySQL/Postgres (configurable per service)
-
-DevOps & Build Tools
-
-Maven
-
-Docker (future deployment)
-
-📂 Repository Structure
+<div class="box" id="repository-structure">
+  <h2>📂 Repository Structure</h2>
+  <pre>
 fitness-app-microservices/
-│── activityservice/        # Microservice for logging activities
-│── aiservice/              # AI-based recommendation microservice
-│── configserver/           # Centralized configuration
-│── eureka/                 # Eureka discovery server
-│── fitness-app-frontend/   # React frontend application
-│── gateway/                # API Gateway for routing & security
-│── userservice/            # User management & authentication
-│── README.md               # Project documentation
+│── activityservice/       # Activity microservice
+│── aiservice/             # AI recommendation microservice
+│── configserver/          # Centralized config
+│── eureka/                # Eureka discovery server
+│── fitness-app-frontend/  # React frontend
+│── gateway/               # API Gateway
+│── userservice/           # User service
+│── README.md              # Documentation
+  </pre>
+</div>
 
-🔎 Detailed Service Description
-1. User Service
-Registers new users
-Handles login & authentication
-Stores profile details
+<div class="box" id="detailed-service-description">
+  <h2>🔎 Detailed Service Description</h2>
+  <ul>
+    <li><b>User Service:</b> Registers users, login, profile details</li>
+    <li><b>Activity Service:</b> Logs activities, tracks calories & steps</li>
+    <li><b>AI Service:</b> Recommends workouts & nutrition plans</li>
+    <li><b>Eureka Server:</b> Tracks available services</li>
+    <li><b>Config Server:</b> Externalized configuration management</li>
+    <li><b>API Gateway:</b> Routes, load balancing, and security</li>
+    <li><b>Frontend:</b> React-based UI</li>
+  </ul>
+</div>
 
-2. Activity Service
-Logs workout activitie
-Tracks calories burned, steps, time spent
-Provides user progress reports
+<div class="box" id="setup-installation">
+  <h2>⚡ Setup & Installation</h2>
+  <h3>Prerequisites</h3>
+  <ul>
+    <li>Java 17+</li>
+    <li>Maven</li>
+    <li>Node.js + npm</li>
+    <li>MySQL/Postgres</li>
+  </ul>
 
-3. AI Recommendation Service
-Suggests workouts & nutrition plans based on activity logs
-Future: Machine Learning integration for adaptive recommendations
-
-4. Eureka Server
-Keeps track of available services
-Enables load balancing & dynamic discovery
-
-5. Config Server
-Centralized externalized configuration
-Supports versioning & environment profiles
-
-6. API Gateway
-Entry point for all external requests
-Manages routing, security, and load balancing
-
-7. Frontend (React)
-Provides user-friendly interface
-Communicates with Gateway using REST APIs
-
-⚡ Setup & Installation
-Prerequisites
-Java 17+
-Maven
-Node.js + npm
-MySQL/Postgres
-
-Backend Setup
-# Clone repository
+  <h3>Backend Setup</h3>
+  <pre>
 git clone https://github.com/Bhargaw21/fitness-app-microservices.git
 cd fitness-app-microservices
 
-# Start Eureka Server
+# Start Eureka
 cd eureka && mvn spring-boot:run
 
 # Start Config Server
@@ -168,54 +160,63 @@ cd aiservice && mvn spring-boot:run
 
 # Start Gateway
 cd gateway && mvn spring-boot:run
+  </pre>
 
-Frontend Setup
+  <h3>Frontend Setup</h3>
+  <pre>
 cd fitness-app-frontend
 npm install
 npm start
+  </pre>
+</div>
 
-📡 API Endpoints
-User Service
-POST /users/register   → Register user
-POST /users/login      → Authenticate user
-GET  /users/{id}       → Get user details
+<div class="box" id="api-endpoints">
+  <h2>📡 API Endpoints</h2>
+  <h3>User Service</h3>
+  <pre>
+POST /users/register    → Register user
+POST /users/login       → Authenticate user
+GET  /users/{id}        → Get user details
+  </pre>
 
-Activity Service
-POST /activities       → Log new activity
-GET  /activities/{id}  → Fetch activity details
-GET  /activities/user/{userId} → Fetch user’s activity history
+  <h3>Activity Service</h3>
+  <pre>
+POST /activities             → Log new activity
+GET  /activities/{id}        → Fetch activity details
+GET  /activities/user/{uid}  → Fetch user’s activity history
+  </pre>
 
-AI Service
-GET /recommendations/{userId} → Get workout & diet recommendations
+  <h3>AI Service</h3>
+  <pre>
+GET /recommendations/{uid} → Get workout & diet recommendations
+  </pre>
 
-Gateway
-All requests go through /api/{service}
+  <h3>Gateway</h3>
+  <pre>
+All requests go through → /api/{service}
+  </pre>
+</div>
 
-🔮 Future Enhancements
+<div class="box" id="future-enhancements">
+  <h2>🔮 Future Enhancements</h2>
+  <ul>
+    <li>JWT-based authentication & OAuth2</li>
+    <li>Analytics dashboard with Power BI / Grafana</li>
+    <li>Containerization with Docker & Kubernetes</li>
+    <li>Cloud deployment (AWS/GCP/Azure)</li>
+    <li>ML-based smarter recommendations</li>
+  </ul>
+</div>
 
-🔐 Implement JWT-based authentication & OAuth2
+<div class="box" id="contributing">
+  <h2>🤝 Contributing</h2>
+  <p>Contributions are welcome! Please fork this repository and submit a pull request.</p>
+</div>
 
-📊 Add analytics dashboard with Power BI / Grafana
+<div class="box" id="license">
+  <h2>📜 License</h2>
+  <p>This project is licensed under the <b>MIT License</b>.</p>
+</div>
 
-🐳 Containerize using Docker & orchestrate with Kubernetes
-
-☁️ Deploy to AWS/GCP/Azure for scalability
-
-🤖 Integrate ML for smarter AI recommendations
-
-🤝 Contributing
-
-Contributions are welcome! Please fork this repository and submit a pull request.
-
-📜 License
-
-This project is licensed under the MIT License.
-
-
-
-
-
-
-
-<img width="2502" height="1504" alt="image" src="https://github.com/user-attachments/assets/d9d7ce45-2217-4a12-9876-1cb5be65e418" />
-
+</body>
+</html>
