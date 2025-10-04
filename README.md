@@ -224,3 +224,9 @@ All requests go through → /api/{service}
 
 <img width="2272" height="1186" alt="image" src="https://github.com/user-attachments/assets/a464f4f8-b544-405b-8649-f46554021e53" />
 
+<img width="2940" height="1422" alt="image" src="https://github.com/user-attachments/assets/94be5490-78d9-45f4-94e2-67896024b085" />
+
+<img width="2932" height="1580" alt="image" src="https://github.com/user-attachments/assets/af39ba85-d7bb-4fec-a566-05285d92a25c" />
+
+
+
