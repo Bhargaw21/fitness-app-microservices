@@ -220,3 +220,7 @@ All requests go through → /api/{service}
 
 </body>
 </html>
+
+
+<img width="2272" height="1186" alt="image" src="https://github.com/user-attachments/assets/a464f4f8-b544-405b-8649-f46554021e53" />
+
